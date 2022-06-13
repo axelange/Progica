@@ -1,0 +1,11 @@
+#index_header {
+    background: url(../../assets/img/header.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 880px;
+}
+
+#index_search {
+    margin-top: -110px;
+}
