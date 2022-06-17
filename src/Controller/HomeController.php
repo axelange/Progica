@@ -15,6 +15,10 @@ class HomeController extends AbstractController
     {
         return $this->render('index.html.twig', [
             'controller_name' => 'HomeController',
+            "title" => "Bienvenue sur Gîtehub",
+            "description" => "Gîtehub est un site de location de gîtes pour les vacances de famille et d'amis.",
+            "keywords" => "gîte, location, vacances, famille, amis, gîtehub, location de gîtes, location de gîtes pour vacances, location de gîtes pour vacances de famille, location de gîtes pour vacances de amis",
+            "menu" => "home",
         ]);
     }
 }

@@ -1,0 +1,46 @@
+{% extends 'dashboard.html.twig' %}
+{% block body %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('danger') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+		<h1 class="h2">Gérer les gîtes</h1>
+	</div>
+	<a href="{{ path('admin_gites_new')}}"><button class="btn btn-primary" data-toggle="modal" data-target="#addGite">Ajouter un gîte</button></a>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for gite in gites %}
+				<tr>
+					<td>{{gite.id}}</td>
+					<td>{{gite.name}}</td>
+					<td>
+						{# <a href="{{ path('admin_gites_show', {id: gite.id})}}"><button class="btn btn-danger">Afficher</button></a> #}
+						<a href="{{ path('admin_gites_edit', {id: gite.id})}}">
+							<button type="submit" class="btn btn-danger">Editer</button>
+						</a>
+						
+						<form action"{{ path('admin_gites_delete', {id: gite.id})}}" method="post">
+							<input type="hidden" name="_method" value="DELETE">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ gite.id) }}">
+							<button type="submit" class="btn btn-danger">Supprimer</button>
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

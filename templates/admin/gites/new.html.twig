@@ -1,0 +1,41 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Nouveau Gîte{% endblock %}
+
+{% block body %}
+   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+		<h1 class="h2">Créer un nouveau gîte</h1>
+	</div>
+
+    {{form_start(formGite)}}
+        <div class="col-md-6">
+        {{form_row(formGite.name)}}
+        </div>
+        <div class="col-md-6">
+            {{form_row(formGite.surface)}}
+        </div>
+        <div class="col-md-6">
+            {{form_row(formGite.bedrooms)}}
+        </div>
+        <div class="col-md-6">
+            {{form_row(formGite.beds)}}
+        </div>
+        <div class="col-md-6">
+            {{form_row(formGite.zipcode)}}
+        </div>
+        <div class="col-md-6">
+            {{form_row(formGite.adress)}}
+        </div>
+        <div class="col-md-6">
+            {{form_row(formGite.description)}}
+        </div>
+        <div class="col-md-6">
+            {{form_row(formGite.price)}}
+        </div>
+        <div class='form-group'>
+        <button type="submit" class="btn btn-danger">Enregistrer</button>
+        <button type="reset" class="btn btn-danger">Effacer</button>
+        </div>
+    {{form_end(formGite)}}
+    <a href="{{ path('admin_gites') }}">Retourner à la liste</a>
+{% endblock %}
